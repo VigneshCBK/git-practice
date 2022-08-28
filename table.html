@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border = "1"> 
+        <tr>
+            <th>Product Name</th>
+            <th >Unit Price</th>
+            <th>Qty</th>
+            <th>action</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Head Phone</td>
+            <td id="unitPrice">200</td>
+            <td><input type="text" id="qty" value="2"></td>
+            <td><button id="trigger">UpDate-Data</button></td>
+            <td id="price"></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>250</td>
+            <td><input type="text"></td>
+            <td><button>UpDate-Data</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Pen</td>
+            <td>210</td>
+            <td><input type="text"></td>
+            <td><button>UpDate-Data</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Laptop</td>
+            <td>205</td>
+            <td><input type="text"></td>
+            <td><button>UpDate-Data</button></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        function calculateprice() {
+
+var unitprice, qty, price,
+rowElement = this.parentNode.parentNode,
+unitpriceElements = rowElement.getElementsByClassName("unitprice"),
+unitpriceElement = unitpriceElements[0],
+qtyElements = rowElement.getElementsByClassName("qty"),
+qtyElement = qtyElements[0],
+priceElements = rowElement.getElementsByClassName("price"),
+priceElement = priceElements[0];
+
+
+
+
+unitprice = unitpriceElement.innerText;
+
+unitprice = parseInt(unitprice);
+
+qty = qtyElement.value;
+
+qty = parseInt(qty);
+
+price = unitprice * qty;
+
+priceElement.innerText = price;
+
+
+}
+// var triggerElement = document.getElementById("trigger");
+var triggerElement = document.getElementsByClassName("trigger");
+
+console.log(triggerElement);
+for( let i=0 ; i<triggerElement.length; i++ ){
+triggerElement[i].addEventListener("click",calculateprice);
+}
+
+
+
+// triggerElement.addEventListener("click",calculateprice);
+    </script>
+</body>
+</html>
